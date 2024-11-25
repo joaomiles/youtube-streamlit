@@ -1,0 +1,30 @@
+{
+    "name": "Python Project with Azure Functions",
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.11",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-toolsai.jupyter",
+                "ms-python.python",
+                "ms-vscode.azurecli",
+                "vscode-icons-team.vscode-icons",
+                "howardzuo.vscode-favorites",
+                "ms-azuretools.vscode-azurestorage",
+                "ms-azuretools.vscode-cosmosdb",
+                "ms-azuretools.vscode-azurefunctions",
+                "mechatroner.rainbow-csv",
+                "sguerri.simple-hide-files",
+                "amodio.toggle-excluded-files",
+                "njpwerner.autodocstring"
+            ]
+        }
+    },
+    "forwardPorts": [
+        8000,
+        7071
+    ],
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y nodejs npm && sudo npm install -g azure-functions-core-tools@4 --unsafe-perm true && pip install -r requirements.txt && cp -n local.settings.json.example local.settings.json && git fetch origin main && git checkout main && git reset --hard origin/main",
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {}
+    }
+}
